@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://mb1bblq0hrli"]
+
+[ext_resource type="Texture2D" uid="uid://bmexa38upyoag" path="res://Image/Back.png" id="1_kikvd"]
+[ext_resource type="Script" uid="uid://behr0ay6q8udw" path="res://Card.cs" id="2_rjlel"]
+
+[node name="Card" type="TextureRect"]
+offset_right = 744.0
+offset_bottom = 1039.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_kikvd")
+script = ExtResource("2_rjlel")

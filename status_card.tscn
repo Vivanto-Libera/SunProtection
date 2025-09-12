@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://28bm6o5qqpu2"]
+
+[ext_resource type="Texture2D" uid="uid://b5r1pj0xsd1mn" path="res://Image/StateLive.jpg" id="1_1p5a4"]
+[ext_resource type="Texture2D" uid="uid://dwnrgobss1tr0" path="res://Image/Heart.png" id="2_xcbg5"]
+
+[node name="StatusCard" type="TextureRect"]
+offset_right = 744.0
+offset_bottom = 1038.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_1p5a4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 740.0
+offset_top = 880.0
+offset_right = 780.0
+offset_bottom = 920.0
+scale = Vector2(4, 4)
+texture = ExtResource("2_xcbg5")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 890.0
+offset_top = 860.0
+offset_right = 1034.0
+offset_bottom = 1035.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
+text = "x4"
