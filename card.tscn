@@ -6,6 +6,6 @@
 [node name="Card" type="TextureRect"]
 offset_right = 744.0
 offset_bottom = 1039.0
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_kikvd")
 script = ExtResource("2_rjlel")
