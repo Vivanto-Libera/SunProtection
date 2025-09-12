@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://28bm6o5qqpu2"]
+[gd_scene load_steps=4 format=3 uid="uid://28bm6o5qqpu2"]
 
 [ext_resource type="Texture2D" uid="uid://b5r1pj0xsd1mn" path="res://Image/StateLive.jpg" id="1_1p5a4"]
 [ext_resource type="Script" uid="uid://dr6vvtwsjc0ed" path="res://StatusCard.cs" id="2_e7ywu"]
 [ext_resource type="Texture2D" uid="uid://dwnrgobss1tr0" path="res://Image/Heart.png" id="2_xcbg5"]
-[ext_resource type="PackedScene" uid="uid://crpj513pk4i1p" path="res://friend_ship_bar.tscn" id="4_e7ywu"]
 
 [node name="StatusCard" type="TextureRect"]
 offset_right = 744.0
@@ -14,25 +13,21 @@ script = ExtResource("2_e7ywu")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 740.0
-offset_top = 880.0
-offset_right = 780.0
-offset_bottom = 920.0
+offset_left = 813.333
+offset_top = 780.0
+offset_right = 853.333
+offset_bottom = 820.0
 scale = Vector2(4, 4)
 texture = ExtResource("2_xcbg5")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 890.0
-offset_top = 860.0
-offset_right = 1034.0
-offset_bottom = 1035.0
+offset_left = 963.333
+offset_top = 760.0
+offset_right = 1107.33
+offset_bottom = 935.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 128
 text = "x4"
-
-[node name="FriendShipBar" parent="." instance=ExtResource("4_e7ywu")]
-position = Vector2(753.333, 6.66667)
-scale = Vector2(5, 5)

@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bv8rmgig54goa"]
+
+[ext_resource type="Script" uid="uid://bnefdcrpn768x" path="res://Player.cs" id="1_sweqy"]
+[ext_resource type="PackedScene" uid="uid://28bm6o5qqpu2" path="res://status_card.tscn" id="2_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://ce4g84m5cyqc" path="res://Image/Stay.png" id="3_1jxqw"]
+[ext_resource type="Script" uid="uid://bb70moquok31b" path="res://Stay.cs" id="4_2hs0m"]
+[ext_resource type="PackedScene" uid="uid://crpj513pk4i1p" path="res://friend_ship_bar.tscn" id="4_dw050"]
+[ext_resource type="PackedScene" uid="uid://bo0mylvyu2hlf" path="res://deck.tscn" id="5_b26j0"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_sweqy")
+
+[node name="StatusCard" parent="." instance=ExtResource("2_2hs0m")]
+offset_left = 105.0
+offset_top = 2.0
+offset_right = 849.0
+offset_bottom = 1040.0
+
+[node name="Stay" type="TextureRect" parent="."]
+visible = false
+offset_left = 13.0
+offset_top = 21.0
+offset_right = 757.0
+offset_bottom = 1060.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_1jxqw")
+script = ExtResource("4_2hs0m")
+
+[node name="FriendShipBar" parent="." instance=ExtResource("4_dw050")]
+position = Vector2(217, 2)
+
+[node name="Deck" parent="." instance=ExtResource("5_b26j0")]
+position = Vector2(-1, 162)
