@@ -27,6 +27,6 @@ public partial class Card : TextureRect
 	{
 		face = value;
 		string path = "res://Image/" + face.ToString() + ".png";
-        Texture = GD.Load<Texture2D>(path);
-    }
+		Texture = GD.Load<Texture2D>(path);
+	}
 }

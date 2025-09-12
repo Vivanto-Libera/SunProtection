@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://28bm6o5qqpu2"]
+[gd_scene load_steps=4 format=3 uid="uid://28bm6o5qqpu2"]
 
 [ext_resource type="Texture2D" uid="uid://b5r1pj0xsd1mn" path="res://Image/StateLive.jpg" id="1_1p5a4"]
+[ext_resource type="Script" uid="uid://dr6vvtwsjc0ed" path="res://StatusCard.cs" id="2_e7ywu"]
 [ext_resource type="Texture2D" uid="uid://dwnrgobss1tr0" path="res://Image/Heart.png" id="2_xcbg5"]
 
 [node name="StatusCard" type="TextureRect"]
@@ -8,6 +9,7 @@ offset_right = 744.0
 offset_bottom = 1038.0
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_1p5a4")
+script = ExtResource("2_e7ywu")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
