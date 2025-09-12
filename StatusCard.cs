@@ -11,7 +11,7 @@ public partial class StatusCard : TextureRect
 	{
 		return hearts;
 	}
-	public void DecreasHearts() 
+	public void DecreaseHearts() 
 	{
 		if(hearts <= 0) 
 		{

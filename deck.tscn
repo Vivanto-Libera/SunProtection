@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://bo0mylvyu2hlf"]
+
+[ext_resource type="Script" uid="uid://yh5m0vsvksgc" path="res://Deck.cs" id="1_he1kt"]
+[ext_resource type="Texture2D" uid="uid://do1etmh83lwoj" path="res://Image/StandUp.png" id="2_3x582"]
+[ext_resource type="Texture2D" uid="uid://c2vilssgn0yyl" path="res://Image/SunScreen.png" id="3_rgf87"]
+[ext_resource type="Texture2D" uid="uid://bfprstxr2u0sv" path="res://Image/Steel.png" id="4_tbve4"]
+[ext_resource type="Texture2D" uid="uid://0h1a8tw7ocdr" path="res://Image/SunUmbrella.png" id="5_28kt0"]
+
+[node name="Deck" type="Node2D"]
+script = ExtResource("1_he1kt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 325.0
+offset_bottom = 150.0
+color = Color(0.44, 0.44, 0.44, 1)
+
+[node name="StandUp" type="TextureRect" parent="."]
+offset_left = 165.0
+offset_top = 5.0
+offset_right = 909.0
+offset_bottom = 1044.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_3x582")
+
+[node name="SunScreen" type="TextureRect" parent="."]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 749.0
+offset_bottom = 1044.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_rgf87")
+
+[node name="Steel" type="TextureRect" parent="."]
+offset_left = 85.0
+offset_top = 5.0
+offset_right = 829.0
+offset_bottom = 1044.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_tbve4")
+
+[node name="SunUmbrella" type="TextureRect" parent="."]
+offset_left = 245.0
+offset_top = 5.0
+offset_right = 989.0
+offset_bottom = 1044.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_28kt0")
+
+[node name="LabSunScreen" type="Label" parent="."]
+offset_left = 27.0
+offset_top = 112.0
+offset_right = 59.0
+offset_bottom = 146.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "x0"
+horizontal_alignment = 1
+
+[node name="LabSteel" type="Label" parent="."]
+offset_left = 108.0
+offset_top = 112.0
+offset_right = 140.0
+offset_bottom = 146.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "x0"
+horizontal_alignment = 1
+
+[node name="LabStandUp" type="Label" parent="."]
+offset_left = 187.0
+offset_top = 112.0
+offset_right = 219.0
+offset_bottom = 146.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "x0"
+horizontal_alignment = 1
+
+[node name="LabSunUmbrella" type="Label" parent="."]
+offset_left = 266.0
+offset_top = 112.0
+offset_right = 298.0
+offset_bottom = 146.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "x0"
+horizontal_alignment = 1
