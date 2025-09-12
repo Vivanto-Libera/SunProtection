@@ -12,7 +12,7 @@ public partial class Card : TextureRect
 		Loss,
 		Shuffle,
 		StandUp,
-		Stay,
+		StayHome,
 		Steel,
 		SunScreen,
 		SunUmbrella,

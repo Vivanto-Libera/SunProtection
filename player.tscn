@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bnefdcrpn768x" path="res://Player.cs" id="1_sweqy"]
 [ext_resource type="PackedScene" uid="uid://28bm6o5qqpu2" path="res://status_card.tscn" id="2_2hs0m"]
-[ext_resource type="Texture2D" uid="uid://ce4g84m5cyqc" path="res://Image/Stay.png" id="3_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://ce4g84m5cyqc" path="res://Image/StayHome.png" id="3_1jxqw"]
 [ext_resource type="Script" uid="uid://bb70moquok31b" path="res://Stay.cs" id="4_2hs0m"]
 [ext_resource type="PackedScene" uid="uid://crpj513pk4i1p" path="res://friend_ship_bar.tscn" id="4_dw050"]
 [ext_resource type="PackedScene" uid="uid://bo0mylvyu2hlf" path="res://deck.tscn" id="5_b26j0"]
