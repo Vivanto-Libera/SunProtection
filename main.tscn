@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b783xrivlwixx"]
+
+[ext_resource type="Script" uid="uid://bnefdcrpn768x" path="res://Player.cs" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bv8rmgig54goa" path="res://player.tscn" id="2_h2yge"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0xm2m")
+
+[node name="Player1" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(296, 0)
+
+[node name="Player2" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(296, 488)
+
+[node name="Player3" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(0, 632)
+rotation = -1.5708
+
+[node name="Player4" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(1216, 7)
+rotation = 1.5708

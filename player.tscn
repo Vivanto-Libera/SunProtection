@@ -30,4 +30,6 @@ script = ExtResource("4_2hs0m")
 position = Vector2(217, 2)
 
 [node name="Deck" parent="." instance=ExtResource("5_b26j0")]
-position = Vector2(-1, 162)
+position = Vector2(287, 2)
+
+[connection signal="Die" from="StatusCard" to="." method="PlayerDie"]
