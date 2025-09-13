@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b783xrivlwixx"]
+[gd_scene load_steps=6 format=3 uid="uid://b783xrivlwixx"]
 
 [ext_resource type="Script" uid="uid://b76m06rgx84jp" path="res://Main.cs" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bv8rmgig54goa" path="res://player.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bfrrmmwhq4kk7" path="res://draw_pile.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://lafl6jvcusbs" path="res://TurnIndicator.cs" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://b4opmy2u3jpui" path="res://select_button.tscn" id="5_lquwl"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_h2yge")
@@ -62,3 +63,35 @@ offset_top = 300.0
 offset_right = 723.0
 offset_bottom = 340.0
 color = Color(1, 0.55, 0, 1)
+
+[node name="UseItems" type="Node2D" parent="."]
+
+[node name="SunScreen" parent="UseItems" instance=ExtResource("5_lquwl")]
+offset_left = 588.0
+offset_top = 495.0
+offset_right = 663.0
+offset_bottom = 599.0
+Number = 9
+
+[node name="Steel" parent="UseItems" instance=ExtResource("5_lquwl")]
+offset_left = 668.0
+offset_top = 495.0
+offset_right = 743.0
+offset_bottom = 599.0
+Number = 8
+
+[node name="StandUp" parent="UseItems" instance=ExtResource("5_lquwl")]
+offset_left = 748.0
+offset_top = 495.0
+offset_right = 823.0
+offset_bottom = 599.0
+Number = 6
+
+[node name="SunUmbrella" parent="UseItems" instance=ExtResource("5_lquwl")]
+offset_left = 828.0
+offset_top = 495.0
+offset_right = 903.0
+offset_bottom = 599.0
+Number = 10
+
+[connection signal="DrawedCard" from="DrawPile" to="." method="OnDrawedCard"]

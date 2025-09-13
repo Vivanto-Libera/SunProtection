@@ -21,7 +21,7 @@ public partial class Main : Node2D
 
 	}
 
-    private void ResetAll() 
+	private void ResetAll() 
 	{
 		for(int i = 0; i < 4; i++) 
 		{

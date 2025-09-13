@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4opmy2u3jpui"]
+
+[ext_resource type="Script" uid="uid://csh0n6opwc780" path="res://SelectButton.cs" id="1_80klj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ac107"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i32pr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0f0u"]
+bg_color = Color(0.6, 0.6, 0.6, 0.294118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i17uw"]
+bg_color = Color(0.6, 0.6, 0.6, 0.196078)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w24bx"]
+bg_color = Color(0.6, 0.6, 0.6, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pf8l"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="SelectButton" type="Button"]
+offset_right = 152.0
+offset_bottom = 208.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_ac107")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_i32pr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_h0f0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i17uw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w24bx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7pf8l")
+script = ExtResource("1_80klj")
+
+[connection signal="pressed" from="." to="." method="OnPressed"]
