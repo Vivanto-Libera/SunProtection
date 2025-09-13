@@ -40,5 +40,7 @@ public partial class Player : Node2D
 	{
 		GetNode<StatusCard>("StatusCard").Reset();
 		GetNode<FriendShipBar>("FriendShipBar").Reset();
+		GetNode<Stay>("Stay").Reset();
+		GetNode<Deck>("Deck").Reset();
 	}
 }

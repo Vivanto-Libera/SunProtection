@@ -14,6 +14,7 @@ public partial class DrawPile : Node2D
 		for (int i = 0; i < count; i++)
 		{
 			deck.Push(face);
+			GD.Print(deck.Count);
 		}
 	}
 	public void ShuffleDeck() 

@@ -25,4 +25,6 @@ rotation = 1.5708
 PlayerNum = 3
 
 [node name="DrawPile" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(552, 244)
+position = Vector2(534, 216)
+
+[node name="TurnIndicator" type="Node2D" parent="."]

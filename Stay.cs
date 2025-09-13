@@ -14,11 +14,11 @@ public partial class Stay : TextureRect
 		this.isStay = isStay;
 		if (isStay)
 		{
-			GetNode<TextureRect>("Stay").Show();
+			Show();
 		}
 		else
 		{
-			GetNode<TextureRect>("Stay").Hide();
+			Hide();
 		}
 	}
 	

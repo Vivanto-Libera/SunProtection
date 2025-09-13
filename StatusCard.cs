@@ -24,13 +24,13 @@ public partial class StatusCard : TextureRect
 			EmitSignal(SignalName.Die);
 		}
 		string labelText = "x" + hearts.ToString();
-		GetNode<Label>("label").Text = labelText;
+		GetNode<Label>("Label").Text = labelText;
 	}
 
 	public void Reset() 
 	{
 		Texture = GD.Load<Texture2D>("res://Image/StateLive.jpg");
 		hearts = 4;
-		GetNode<Label>("label").Text = "x4";
+		GetNode<Label>("Label").Text = "x4";
 	}
 }

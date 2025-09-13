@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using static Card;
 using static Card.Face;
 
 public partial class Deck : Node2D
@@ -41,5 +42,14 @@ public partial class Deck : Node2D
 		CardsNum[FaceToIndex(face)]--;
 		string labName = "Lab" + face.ToString();
 		GetNode<Label>(labName).Text = "x" + CardsNum[FaceToIndex(face)];
+	}
+
+	public void Reset() 
+	{
+		CardsNum = new int[4];
+		GetNode<Label>("LabSunScreen").Text = "x0";
+		GetNode<Label>("LabSunUmbrella").Text = "x0";
+		GetNode<Label>("LabSteel").Text = "x0";
+		GetNode<Label>("LabStandUp").Text = "x0";
 	}
 }

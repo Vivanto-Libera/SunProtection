@@ -25,10 +25,11 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 script = ExtResource("1_iq4tk")
 
 [node name="Card" parent="." instance=ExtResource("1_k8hdt")]
+scale = Vector2(0.2, 0.2)
 
 [node name="Button" type="Button" parent="."]
-offset_right = 112.0
-offset_bottom = 160.0
+offset_right = 152.0
+offset_bottom = 208.0
 theme_override_styles/focus = SubResource("StyleBoxFlat_iq4tk")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_k8rks")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_k3d5j")
