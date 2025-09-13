@@ -1,7 +1,6 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using static Card;
 using static Card.Face;
 
 public partial class DrawPile : Node2D

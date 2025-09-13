@@ -7,19 +7,22 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_h2yge")
 
-[node name="Player1" parent="." instance=ExtResource("2_h2yge")]
+[node name="Player0" parent="." instance=ExtResource("2_h2yge")]
 position = Vector2(296, 488)
 
-[node name="Player2" parent="." instance=ExtResource("2_h2yge")]
+[node name="Player1" parent="." instance=ExtResource("2_h2yge")]
 position = Vector2(0, 682)
 rotation = -1.5708
+PlayerNum = 1
+
+[node name="Player2" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(296, 0)
+PlayerNum = 2
 
 [node name="Player3" parent="." instance=ExtResource("2_h2yge")]
-position = Vector2(296, 0)
-
-[node name="Player4" parent="." instance=ExtResource("2_h2yge")]
 position = Vector2(1216, -34)
 rotation = 1.5708
+PlayerNum = 3
 
 [node name="DrawPile" parent="." instance=ExtResource("3_h2yge")]
 position = Vector2(552, 244)

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Godot;
 
 namespace SunProtection
@@ -6,18 +8,22 @@ namespace SunProtection
     public class AiPlayer
     {
         public Player player;
-
+        public List<HateValue> oppsites = new List<HateValue>();
         public AiPlayer(Player player) 
         {
             this.player = player;
+            for (int i = player.PlayerNum + 1; i <= player.PlayerNum + 3; i++) 
+            {
+                oppsites.Add(new HateValue(i % 4));
+            }
         }
 
 
     }
     
-    internal class HateValue 
+    public class HateValue 
     {
-        public Player who 
+        public int who 
         {
             get;
         }
@@ -47,7 +53,7 @@ namespace SunProtection
             hateValue += value;
         }
 
-        public HateValue(Player who) 
+        public HateValue(int who) 
         {
             this.who = who;
         }

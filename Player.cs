@@ -8,6 +8,7 @@ public partial class Player : Node2D
 	[Export]
 	public int PlayerNum;
 
+	private bool isDie = false;
 	public bool IsStay() 
 	{
 		return GetNode<Stay>("Stay").IsStay();
@@ -25,8 +26,19 @@ public partial class Player : Node2D
 		return GetNode<FriendShipBar>("FriendShipBar").HasFriendShip(theFriendShip);
 	}
 
+	public bool IsDie() 
+	{
+		return isDie;
+	}
 	public void PlayerDie() 
 	{
+		isDie = true;
 		EmitSignal(SignalName.Die, PlayerNum);
+	}
+
+	public void Reset() 
+	{
+		GetNode<StatusCard>("StatusCard").Reset();
+		GetNode<FriendShipBar>("FriendShipBar").Reset();
 	}
 }
