@@ -1,10 +1,13 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using static Card;
 using static Card.Face;
 
 public partial class DrawPile : Node2D
 {
+	[Signal]
+	public delegate void DrawedCardEventHandler(int face);
 	private Stack<Card.Face> deck = new Stack<Card.Face>();
 
 	private void AddCardsToDeck(Card.Face face, int count) 
@@ -17,14 +20,36 @@ public partial class DrawPile : Node2D
 	public void ShuffleDeck() 
 	{
 		Stack<Card.Face> newDeck = new Stack<Card.Face>();
-		Card.Face[] oldDeck = new Card.Face[deck.Count];
-		deck.CopyTo(oldDeck, 0);
-		while(newDeck.Count != deck.Count) 
+		List<Card.Face> oldDeck = [.. deck];
+		while(oldDeck.Count != 0) 
 		{
-			
+			int index = GD.RandRange(0, oldDeck.Count - 1);
+			newDeck.Push(oldDeck[index]);
+			oldDeck.RemoveAt(index);
 		}
+		deck = new Stack<Card.Face>(newDeck);
 	}
 
+	public void OnButtonPressed() 
+	{
+		DrawCard();
+	}
+
+	public void DrawCard() 
+	{
+		Card.Face face = deck.Pop();
+		GetNode<Card>("Card").SetFace(face);
+		EmitSignal(SignalName.DrawedCard, (int)face);
+	}
+	public void SetBack() 
+	{
+		GetNode<Card>("Card").SetFace(Back);
+	}
+
+	public void setButtonDisable(bool isDisable) 
+	{
+		GetNode<Button>("Button").SetDeferred(Button.PropertyName.Disabled, isDisable);
+	}
 	public void Reset()
 	{
 		deck.Clear();
@@ -38,5 +63,7 @@ public partial class DrawPile : Node2D
 		AddCardsToDeck(FriendShipOver, 4);
 		AddCardsToDeck(FriendShip, 6);
 		AddCardsToDeck(StayHome, 4);
+		SetBack();
+		setButtonDisable(false);
 	}
 }
