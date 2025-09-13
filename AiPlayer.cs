@@ -17,8 +17,6 @@ namespace SunProtection
                 oppsites.Add(new HateValue(i % 4));
             }
         }
-
-
     }
     
     public class HateValue 
