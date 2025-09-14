@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Player : Node2D
 {
@@ -13,6 +14,7 @@ public partial class Player : Node2D
 	public FriendShipBar friendShipBar;
 	public StatusCard statusCard;
 	public Stay stay;
+	public List<int> friendShip = new List<int>();
 
 	public bool IsDie() 
 	{
@@ -30,12 +32,14 @@ public partial class Player : Node2D
 		GetNode<FriendShipBar>("FriendShipBar").Reset();
 		GetNode<Stay>("Stay").Reset();
 		GetNode<Deck>("Deck").Reset();
+		friendShip = new List<int>();
+		isDie = false;
 	}
-    public override void _Ready()
-    {
+	public override void _Ready()
+	{
 		deck = GetNode<Deck>("Deck");
 		friendShipBar = GetNode<FriendShipBar>("FriendShipBar");
 		statusCard = GetNode<StatusCard>("StatusCard");
 		stay = GetNode<Stay>("Stay");
-    }
+	}
 }

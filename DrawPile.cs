@@ -17,6 +17,13 @@ public partial class DrawPile : Node2D
 			GD.Print(deck.Count);
 		}
 	}
+	public void AddCardsFromDiscardPile(Stack<Card.Face> discardPile) 
+	{
+		while(discardPile.Count != 0) 
+		{
+			deck.Push(discardPile.Pop());
+		}
+	}
 	public void ShuffleDeck() 
 	{
 		Stack<Card.Face> newDeck = new Stack<Card.Face>();

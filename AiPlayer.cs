@@ -9,19 +9,36 @@ namespace SunProtection
     {
         public Player player;
         public List<HateValue> oppsites = new List<HateValue>();
+
+        public int[] AddFriendShip() 
+        {
+            int[] players = new int[2];
+            foreach (HateValue oppsite in oppsites) 
+            {
+                if (oppsite.who.deck.GetCardsNum()[3]== 1
+                    && player.friendShip.Contains(oppsite.who.PlayerNum) == false) 
+                {
+                    players[0] = player.PlayerNum;
+                    players[1] = oppsite.who.PlayerNum;
+                    return players;
+                }
+            }
+
+        }
+
+        public void AddHateValue(Player player) 
+        {
+            oppsites.Add(new HateValue(player));
+        }
         public AiPlayer(Player player) 
         {
             this.player = player;
-            for (int i = player.PlayerNum + 1; i <= player.PlayerNum + 3; i++) 
-            {
-                oppsites.Add(new HateValue(i % 4));
-            }
         }
     }
     
     public class HateValue 
     {
-        public int who 
+        public Player who 
         {
             get;
         }
@@ -51,7 +68,7 @@ namespace SunProtection
             hateValue += value;
         }
 
-        public HateValue(int who) 
+        public HateValue(Player who) 
         {
             this.who = who;
         }
