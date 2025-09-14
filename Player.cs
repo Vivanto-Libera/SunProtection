@@ -9,22 +9,10 @@ public partial class Player : Node2D
 	public int PlayerNum;
 
 	private bool isDie = false;
-	public bool IsStay() 
-	{
-		return GetNode<Stay>("Stay").IsStay();
-	}
-	public int Hearts() 
-	{
-		return GetNode<StatusCard>("StatusCard").GetHearts();
-	}
-	public int[] GetCardsNum()
-	{
-		return GetNode<Deck>("Deck").GetCardsNum();
-	}
-	public bool HasFriendShip(FriendShipBar.FriendShip theFriendShip)
-	{
-		return GetNode<FriendShipBar>("FriendShipBar").HasFriendShip(theFriendShip);
-	}
+	public Deck deck;
+	public FriendShipBar friendShipBar;
+	public StatusCard statusCard;
+	public Stay stay;
 
 	public bool IsDie() 
 	{
@@ -43,4 +31,11 @@ public partial class Player : Node2D
 		GetNode<Stay>("Stay").Reset();
 		GetNode<Deck>("Deck").Reset();
 	}
+    public override void _Ready()
+    {
+		deck = GetNode<Deck>("Deck");
+		friendShipBar = GetNode<FriendShipBar>("FriendShipBar");
+		statusCard = GetNode<StatusCard>("StatusCard");
+		stay = GetNode<Stay>("Stay");
+    }
 }

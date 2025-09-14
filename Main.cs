@@ -18,7 +18,20 @@ public partial class Main : Node2D
 	}
 	public void Acted(Player player, int face) 
 	{
-
+		switch ((Card.Face)face)
+		{
+			case SunScreen:
+			case Loss:
+			case StandUp:
+				player.deck.IncreaseCardsNum((Card.Face)face);
+				break;
+			case SunUmbrella:
+				if (player.deck.GetCardsNum()[3] != 1) 
+				{
+                    player.deck.IncreaseCardsNum((Card.Face)face);
+                }
+				break;
+		}
 	}
 
 	private void ResetAll() 
