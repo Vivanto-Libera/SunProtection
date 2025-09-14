@@ -1,6 +1,8 @@
 using Godot;
+using SunProtection;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using static Card.Face;
 
@@ -13,6 +15,7 @@ public partial class Main : Node2D
 	public FriendShipBar.FriendShip usedFriendShip;
 	public SelectPlayer selectPlayer;
 	public int aliveNum;
+	public AiPlayer[] aiPlayers = new AiPlayer[3];
 	public void GameStart() 
 	{
 		ResetAll();
@@ -23,7 +26,7 @@ public partial class Main : Node2D
 	{
 		Acted(humanplayer, face);
 	}
-	public void Acted(Player player, int face) 
+	public async void Acted(Player player, int face) 
 	{
 		switch ((Card.Face)face)
 		{
@@ -40,6 +43,9 @@ public partial class Main : Node2D
 				break;
 			case Shuffle:
 				ShuffleDeck();
+				break;
+			case FriendShip:
+				await AddFriendShip(player.PlayerNum);
 				break;
 		}
 	}
@@ -79,9 +85,35 @@ public partial class Main : Node2D
 			}
 			else
 			{
-
+				int[] twoPlayer = aiPlayers[player - 1].AddFriendShip();
+				playerA = twoPlayer[0];
+				playerB = twoPlayer[1];
+				if(playerA != player) 
+				{
+					aiPlayers[player - 1].PlayerNumToIndex(playerA).MakeFriendShip(true);
+				}
+                if (playerB != player)
+                {
+                    aiPlayers[player - 1].PlayerNumToIndex(playerB).MakeFriendShip(true);
+                }
+            }
+			if(playerA != player && playerA != 0) 
+			{
+				aiPlayers[playerA - 1].PlayerNumToIndex(player).MakeFriendShip(false);
 			}
-		}
+            if (playerB != player && playerB != 0)
+            {
+                aiPlayers[playerB - 1].PlayerNumToIndex(player).MakeFriendShip(false);
+            }
+			Player player1 = GetNode<Player>("Player" + playerA.ToString());
+			Player player2 = GetNode<Player>("Player" + playerB.ToString());
+			FriendShipBar.FriendShip color = GetUnusedFriendShipColor();
+			player1.friendShip.Add(playerB);
+			player1.friendShipBar.AddFriendShip(color);
+            player2.friendShip.Add(playerA);
+            player2.friendShipBar.AddFriendShip(color);
+        }
+		discardPile.Push(FriendShip);
 	}
 	public int GetUsedFriendShipNum() 
 	{
@@ -95,12 +127,29 @@ public partial class Main : Node2D
 		}
 		return num;
 	}
+	public FriendShipBar.FriendShip GetUnusedFriendShipColor() 
+	{
+		FriendShipBar.FriendShip color = 0;
+        for (int i = 0; i <= 5; i++)
+        {
+            if ((usedFriendShip & (FriendShipBar.FriendShip)(1 << i)) == 0)
+            {
+				color = (FriendShipBar.FriendShip)(1 << i);
+				break;
+            }
+        }
+		return color;
+    }
 	private void ResetAll() 
 	{
 		for(int i = 0; i < 4; i++) 
 		{
 			string playerName = "Player" + i.ToString();
 			GetNode<Player>(playerName).Reset();
+		}
+		foreach(AiPlayer aiplayer in aiPlayers) 
+		{
+			aiplayer.Reset();
 		}
 		drawPile.Reset();
 		turnIndicator.Reset();
@@ -115,6 +164,14 @@ public partial class Main : Node2D
 		drawPile = GetNode<DrawPile>("DrawPile");
 		turnIndicator = GetNode<TurnIndicator>("TurnIndicator");
 		selectPlayer = GetNode<SelectPlayer>("SelectPlayer");
+		for(int i = 1; i <= 3; i++) 
+		{
+			aiPlayers[i - 1] = new AiPlayer(GetNode<Player>("Player" + i.ToString()));
+			for (int j = i + 1; j <= i + 3; j++) 
+			{
+				aiPlayers[i - 1].AddHateValue(GetNode<Player>("Player" + (j % 4).ToString()));
+			}
+		}
         GameStart();
 	}
 }

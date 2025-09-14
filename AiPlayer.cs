@@ -23,12 +23,56 @@ namespace SunProtection
                     return players;
                 }
             }
-
+            var choises = new PriorityQueue<int[], int>(Comparer<int>.Create((a, b) => b.CompareTo(a)));
+            for (int i = 0; i < 4; i++)
+            {
+                HateValue oppsite = oppsites[i];
+                if (oppsite.who.IsDie()) 
+                {
+                    continue;
+                }
+                int prioprityValue = oppsite.GetHateValue();
+                prioprityValue += oppsite.who.deck.GetCardsNum()[3] == 1 ? -100 : 0;
+                for(int j = i + 1; j < 4; j++) 
+                {
+                    HateValue otherOppsite = oppsites[j];
+                    if (otherOppsite.who.IsDie() || oppsite.who.friendShip.Contains(otherOppsite.who.PlayerNum)) 
+                    {
+                        continue;
+                    }
+                    prioprityValue = otherOppsite.GetHateValue();
+                    prioprityValue += otherOppsite.who.deck.GetCardsNum()[3] == 1 ? -100 : 0;
+                    int[] twoPlayer = new int[2]{oppsite.who.PlayerNum, otherOppsite.who.PlayerNum};
+                    choises.Enqueue(twoPlayer, prioprityValue);
+                }
+                choises.Enqueue([oppsite.who.PlayerNum, player.PlayerNum], -400);
+            }
+            return choises.Dequeue();
         }
 
         public void AddHateValue(Player player) 
         {
             oppsites.Add(new HateValue(player));
+        }
+        public HateValue PlayerNumToIndex(int playerNum) 
+        {
+            int index = -1;
+            for(int i = 0; i <= 3; i++) 
+            {
+                if (oppsites[i].who.PlayerNum == playerNum)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            return oppsites[index];
+        }
+        public void Reset() 
+        {
+            foreach(HateValue oppsite in oppsites) 
+            {
+                oppsite.Reset();
+            }
         }
         public AiPlayer(Player player) 
         {
@@ -67,7 +111,10 @@ namespace SunProtection
         {
             hateValue += value;
         }
-
+        public void Reset() 
+        {
+            hateValue = 0;
+        }
         public HateValue(Player who) 
         {
             this.who = who;
